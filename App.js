@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+// import component NavigationContainer
+import { View, Text } from 'react-native'
+import { NavigationContainer } from "@react-navigation/native";
+// import Routes
+import Routes from "./Routes";
+import Login from "./src/Login";
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+  const [logged, setLogged] = useState(false);
+  
+    if(logged){
+      return <Routes />
+    }
+    return <Login setLogged={setLogged} />
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// ONDE VAI O ARQUIVO DETALHES? VERIFICAR O GITHUB
+
+/* 
+ <NavigationContainer>
+      <TelaHome />
+ </NavigationContainer>
+*/
+
+  /*const [logged, setLogged] = useState(false);
+
+  if(logged){
+    return <Routes />
+  }
+  return <Login setLogged={setLogged} />*/
